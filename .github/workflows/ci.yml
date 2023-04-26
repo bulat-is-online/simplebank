@@ -19,9 +19,9 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_DB: simple_bank
           POSTGRES USER: root
           POSTGRES_PASSWORD: secret
+          POSTGRES_DB: simple_bank
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
