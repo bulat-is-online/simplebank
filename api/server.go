@@ -20,6 +20,8 @@ func NewServer(store *db.Store) *Server {
 	// need to implement method for the server struct because to have an access to server object to save new account in db
 	router.POST("/accounts", server.createAccount)
 	router.GET("/accounts/:id", server.getAccount)
+	router.PUT("/accounts", server.updateAccount)
+	router.DELETE("/accounts/:id", server.deleteAccount)
 	// in list /accounts because parameter are sent in url
 	router.GET("/accounts", server.listAccount)
 
