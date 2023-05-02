@@ -112,6 +112,8 @@ func TestGetAccountAPI(t *testing.T) {
 	}
 }
 
+//TODO TestCreateAccountAPI
+
 func randomAccount() db.Account {
 	return db.Account{
 		ID:       util.RandomInt(1, 1000),
@@ -130,3 +132,5 @@ func requireBodyMatchAccount(t *testing.T, body *bytes.Buffer, account db.Accoun
 	require.NoError(t, err)
 	require.Equal(t, account, gotAccount)
 }
+
+//TODO: create tests for other APIs
