@@ -32,8 +32,11 @@ func NewServer(store db.Store) *Server {
 	// in list /accounts because parameter are sent in url
 	router.GET("/accounts", server.listAccount)
 
-	//same for transfers
+	//transfers
 	router.POST("/transfers", server.createTransfer)
+
+	//users
+	router.POST("/users", server.createUser)
 
 	server.router = router
 	return server
