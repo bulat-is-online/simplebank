@@ -55,7 +55,8 @@ func (server *Server) createUser(ctx *gin.Context) {
 				return
 			}
 		}
-
+		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		return
 	}
 
 	rsp := createUserResponse{
