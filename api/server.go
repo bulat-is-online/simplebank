@@ -47,12 +47,15 @@ func (server *Server) setupRouter() {
 	router.POST("/users/login", server.loginUser)
 	//route, one or multiple handlers, the last function should be real handler, and others middlewares
 	// need to implement method for the server struct because to have an access to server object to save new account in db
-	router.POST("/accounts", server.createAccount)
-	router.GET("/accounts/:id", server.getAccount)
-	router.PUT("/accounts", server.updateAccount)
-	router.DELETE("/accounts/:id", server.deleteAccount)
+
+	authRoutes := router.Group("/").Use(authMiddleware(server.tokenMaker))
+
+	authRoutes.POST("/accounts", server.createAccount)
+	authRoutes.GET("/accounts/:id", server.getAccount)
+	authRoutes.PUT("/accounts", server.updateAccount)
+	authRoutes.DELETE("/accounts/:id", server.deleteAccount)
 	// in list /accounts because parameter are sent in url
-	router.GET("/accounts", server.listAccount)
+	authRoutes.GET("/accounts", server.listAccount)
 
 	//transfers
 	router.POST("/transfers", server.createTransfer)
