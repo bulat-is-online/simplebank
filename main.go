@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"log"
 
-	"github.com/bulat-is-online/simplebank/api"
 	db "github.com/bulat-is-online/simplebank/db/sqlc"
 	"github.com/bulat-is-online/simplebank/db/util"
+	"github.com/bulat-is-online/simplebank/ft/docker/api"
 	_ "github.com/lib/pq"
 )
 
